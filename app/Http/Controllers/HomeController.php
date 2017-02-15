@@ -27,8 +27,18 @@ class HomeController extends Controller
         return view('home', compact('products'));
     }
     
-    public function destroyProduct($id)
+    public function destroyProduct(Request $request, $id)
     {
-        return back();
+        if($request->ajax()){            
+            $product = \App\Product::find($id);
+            $product->delete();
+            $products_total = \App\Product::all()->count();
+            
+            return response()->json([
+                'total' => $products_total,
+                'message' =>  $product->name . ' fue eliminado correctamente'
+            ]);
+           
+        }
     }
 }
