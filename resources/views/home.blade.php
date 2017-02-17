@@ -13,11 +13,12 @@
                         registros | página {{ $products->currentPage() }} 
                         de {{ $products->lastPage() }}
                     </p>    
+                    <div id="alert" class="alert alert-info"></div>
                     <table class="table table-hover table-striped">
                         <thead>
                             <tr>
                                 <th width="20px">ID</th>
-                                <th>Título</th>
+                                <th>Nombre del producto</th>
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
